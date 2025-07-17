@@ -63,7 +63,7 @@ body { margin: 0; padding: 0; }
     const map = new mapboxgl.Map({
         container: 'map',
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-        style: 'mapbox://styles/mapbox/standard',
+        style: 'mapbox://styles/lizmccleary/cmcy1b3mx00d601r40sdhd7ky',
         center: [48.450,-123.407],
         zoom: 12, 
         pitch: 3, 
@@ -76,11 +76,11 @@ body { margin: 0; padding: 0; }
     map.on('load', () => {
         map.addSource('1928_map', {
             'type': 'raster',
-            'url': 'mapbox://mapbox.u8yyzaor'
+            'url': 'https://raw.githubusercontent.com/francesmccleary/gorgewaterway/1928_map/1928_lin_merc.tif'
         });
         map.addLayer({
-            'id': 'chicago',
-            'source': 'chicago',
+            'id': '1928_map',
+            'source': '1928_map',
             'type': 'raster'
         });
 
@@ -89,7 +89,7 @@ body { margin: 0; padding: 0; }
             // be another layer name found in your style or a custom layer
             // added on the fly using `addSource`.
             map.setPaintProperty(
-                'chicago',
+                '1928_map',
                 'raster-opacity',
                 parseInt(e.target.value, 10) / 100
             );
